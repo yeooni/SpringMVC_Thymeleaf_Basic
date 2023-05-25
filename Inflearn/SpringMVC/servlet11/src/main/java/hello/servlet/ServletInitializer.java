@@ -1,13 +1,13 @@
-package hello.servlet11;
+package hello.servlet;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-public class Servlet11Initializer extends SpringBootServletInitializer {
+public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Servlet11Application.class);
+		return application.sources(ServletApplication.class);
 	}
 
 }

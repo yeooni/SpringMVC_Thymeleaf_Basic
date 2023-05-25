@@ -1,4 +1,4 @@
-package hello.servlet11.domaion.member;
+package hello.servlet.domaion.member;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,15 +12,16 @@ public class MemberRepository {
 
 
 
-    private static Map<Long, Member> store = new HashMap<>();
-    private static long sequnce = 0;
+    private static Map<Long, Member> store = new HashMap<>(); //static 사용
+    private static long sequnce = 0L; //static 사용
 
     private static final MemberRepository instance = new MemberRepository(); //싱글톤
 
     public static MemberRepository getInstance() { //무조건  getInstance로 조회한다.
+
         return instance;
     }
-    private MemberRepository() { //생성자를 막아야함
+    private MemberRepository() { //생성자를 막아야함 -> 싱글톤 패턴은 객체를 단 하나만 생생해서 공유해야하므로 생성자를 private 접근자로 막아둔다.
 
     }
 
@@ -31,6 +32,7 @@ public class MemberRepository {
     }
 
     public  Member findById(Long id) {
+
         return store.get(id);
     }
 
@@ -40,6 +42,7 @@ public class MemberRepository {
     }
 
     public void clearStore() {
+
         store.clear();
     }
 }

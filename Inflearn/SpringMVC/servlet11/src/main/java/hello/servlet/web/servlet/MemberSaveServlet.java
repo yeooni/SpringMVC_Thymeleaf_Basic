@@ -1,7 +1,7 @@
-package hello.servlet11.web.servlet;
+package hello.servlet.web.servlet;
 
-import hello.servlet11.domaion.member.Member;
-import hello.servlet11.domaion.member.MemberRepository;
+import hello.servlet.domaion.member.Member;
+import hello.servlet.domaion.member.MemberRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.http.HttpClient;
 
 @WebServlet(name = "memberSaveServlet", urlPatterns = "/servlet/members/save")
 public class MemberSaveServlet extends HttpServlet {

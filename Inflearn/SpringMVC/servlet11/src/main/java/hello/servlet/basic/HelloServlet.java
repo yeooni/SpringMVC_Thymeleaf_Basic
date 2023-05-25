@@ -1,4 +1,4 @@
-package hello.servlet11.basic;
+package hello.servlet.basic;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 @WebServlet(name = "helloServlet", urlPatterns = "/hello")

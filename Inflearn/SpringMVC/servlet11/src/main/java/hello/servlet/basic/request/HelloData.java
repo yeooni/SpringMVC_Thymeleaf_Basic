@@ -1,7 +1,5 @@
-package hello.servlet11.basic.request;
+package hello.servlet.basic.request;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import lombok.Getter;
 import lombok.Setter;
 

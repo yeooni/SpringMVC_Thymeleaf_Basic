@@ -1,6 +1,6 @@
-package hello.servlet11.web.servlet;
+package hello.servlet.web.servlet;
 
-import hello.servlet11.domaion.member.MemberRepository;
+import hello.servlet.domaion.member.MemberRepository;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +14,7 @@ public class MemberFormServlet extends HttpServlet {
 
     // 싱글톤이기 때문에 new 연산자를 쓸 수 없다.
     //MemberRepository에서 private로 MemberRepository를 막아 놓았기 때문에
-    private MemberRepository memberRepository = MemberRepository.getInstance();
+    //private MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
