@@ -25,26 +25,31 @@ public class MappingController {
      * method 특정 HTTP 메서드 요청만 허용
      * GET, HEAD, POST, PUT, PATCH, DELETE
      **/
-    @RequestMapping(value = "/mapping-get-v1", method = RequestMethod.GET) public String mappingGetV1() {
+    @RequestMapping(value = "/mapping-get-v1", method = RequestMethod.GET)
+    public String mappingGetV1() {
         log.info("mappingGetV1");
-        return "ok"; }
+        return "ok";
+    }
 
 
     /**
      * 편리한 축약 애노테이션 (코드보기)
+     *
      * @GetMapping
      * @PostMapping
      * @PutMapping
      * @DeleteMapping
      * @PatchMapping
      **/
-    @GetMapping(value = "/mapping-get-v2") public String mappingGetV2() {
+    @GetMapping(value = "/mapping-get-v2")
+    public String mappingGetV2() {
         log.info("mapping-get-v2");
-        return "ok"; }
+        return "ok";
+    }
 
 
     /**
-     * PathVariable 사용(url 경로를 템플릭화 함)
+     * PathVariable 사용(url 경로를 템플릿화 함)
      * PathVariable의 이름과 파라미터 이름이 같으면(변수명이 같으면) 생략 가능
      *
      * @PathVariable("userId") String userId -> @PathVariable userId
@@ -72,7 +77,8 @@ public class MappingController {
      * params="mode!=debug" (! = )
      * params = {"mode=debug","data=good"}
      */
-    @GetMapping(value = "/mapping-param", params = "mode=debug") public String mappingParam() {
+    @GetMapping(value = "/mapping-param", params = "mode=debug")
+    public String mappingParam() {
         log.info("mappingParam");
         return "ok";
     }
@@ -84,8 +90,24 @@ public class MappingController {
      * headers="mode=debug"
      * headers="mode!=debug" (! = )
      */
-    @GetMapping(value = "/mapping-header", headers = "mode=debug") public String mappingHeader() {
+    @GetMapping(value = "/mapping-header", headers = "mode=debug")
+    public String mappingHeader() {
         log.info("mappingHeader");
+        return "ok";
+    }
+
+    /**
+     * HTTP 요청의 Content-Type 헤더를 기반으로 미디어타입으로 매핑한다.
+     * 만약 맞지 않으면 HTTP 415 상태코드(Unsupported Media Type)을 반환한다.
+     * Accept 헤더 기반 Media Type
+     * produces = "text/html"
+     * produces = "!text/html"
+     * produces = "text/*"
+     * produces = "*\/*"
+     */
+    @PostMapping(value = "/mapping-produce", produces = "text/html")
+    public String mappingProduces() {
+        log.info("mappingProduces");
         return "ok";
     }
 
