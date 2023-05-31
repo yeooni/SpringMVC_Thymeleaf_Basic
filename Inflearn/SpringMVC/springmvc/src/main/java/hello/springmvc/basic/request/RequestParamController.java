@@ -1,7 +1,9 @@
 package hello.springmvc.basic.request;
 
+import hello.springmvc.basic.HelloData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -130,6 +132,39 @@ public class RequestParamController {
 
         return "ok";
     }
+
+    /**
+     * @ModelAttribute 사용
+     * HelloData 객체가 생성되고, 요청 파라미터의 값도 모두 들어가 있다.
+     * 1. HelloData 객체 생성 -> 2.요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다. -> 3. 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩)한다.
+     */
+    @ResponseBody
+    @RequestMapping("/model-attribute-v1")
+    public String modelAttributeV1(@ModelAttribute HelloData helloData) {
+
+        log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+        log.info("helloData={}", helloData); //toString으로 log를 자동생성 해준다.
+
+        return "ok";
+    }
+
+    /**
+     * @ModelAttribute 생략 가능
+     * String, int 같은 단순 타입 = @RequestParam
+     * argument resolver 로 지정해둔 타입 외 = @ModelAttribute
+     */
+    @ResponseBody
+    @RequestMapping("/model-attribute-v2")
+    public String modelAttributeV2(HelloData helloData) {
+        log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+        return "ok";
+    }
+
+
+    /**
+     * 스프링은 String, int, Integer 같은 단순타입 = @RequestParam을 사용하고,
+     * 나머지는 @ModelAttribute (argument resolver 로 지정해둔 타입 외)를 사용한다.
+     */
 
 }
 
